@@ -18,6 +18,20 @@
                     <button class="button_author_del" @click="deleteAuthor"> Удалить автора </button>
                 </div>
             </div>
+
+            <div class="main_info">
+                <h2> Основная информация </h2>
+                <input class="text" type="text" placeholder="Название"> 
+                <input class="text" type="text" placeholder="Город издателя">
+                <input class="text" type="text" placeholder="Издатель">
+                <input class="text" type="text" placeholder="Год побликации">
+                <input class="text" type="text" placeholder="Cтраницы">
+            </div>
+
+            <div class="output_block">
+                <h2> Результат </h2>
+                <textarea class="output" type="text"> {{outputResult}} </textarea>
+            </div>
         </div>
     </div>
 </template>
@@ -26,13 +40,16 @@
 export default {
     data(){
         return{
-            countAuthors: 1
+            countAuthors: 1,
+            outputResult: ''
         }
     },
+    
     methods: {
         addAuthor(){
             this.countAuthors += 1
         },
+
         deleteAuthor(){
             if (this.countAuthors != 1) {
                 this.countAuthors -= 1
@@ -123,4 +140,26 @@ export default {
         box-shadow: 0 0 3px rgba(0,0,0,0.5);
     }
 
+    .main_info{
+        padding: 15px 0 0 20px;
+    }
+    
+    .main_info > h2{
+        padding-bottom: 20px;
+    }
+
+    .output_block{
+        padding: 15px 0 0 20px;
+    }
+
+    .output{
+        resize: none;
+        width: 95%;
+        height: 300px;
+        border: 1px solid grey;
+        padding: 10px 15px;
+        margin: 0  0 20px 10px;
+        font-size: 17px;
+        border-radius: 12px
+    }
 </style>
